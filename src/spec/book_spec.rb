@@ -18,4 +18,5 @@ describe Book do
       expect(@book).to be_kind_of(Item)
     end
   end
+
 end
