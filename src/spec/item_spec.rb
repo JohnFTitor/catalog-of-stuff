@@ -43,13 +43,19 @@ describe Item do
   end
 
   context '#can_be_archived?' do
-    it 'return true if published_date is older than 10 years' do
-      expect(@item.can_be_archived?).to be true
+    it 'should be private' do
+      expect { @item.can_be_archived? }.to raise_error(NoMethodError)
+    end
+  end
+
+  context '#move_to_archive' do
+    it 'change archive property to true' do
+      expect(@item.move_to_archive).to be true
     end
 
-    it 'return false if published_date is smaller than 10 years' do
-      item1 = Item.new(4, Date.new(2015, 2, 3), true)
-      expect(item1.can_be_archived?).to be false
+    it 'change archive property to false' do
+      item = Item.new(4, Date.new(2015, 2, 3), true)
+      expect(item.move_to_archive).to be false
     end
   end
 end
