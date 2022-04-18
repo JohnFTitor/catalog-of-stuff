@@ -9,6 +9,13 @@ class Item
     @archived = archived
   end
 
+  def move_to_archive
+    @archived = can_be_archived?
+    @archived
+  end
+
+  private
+
   def can_be_archived?
     Date.today.year - @published_date.year >= 10
   end
