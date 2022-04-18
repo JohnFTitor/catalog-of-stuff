@@ -2,7 +2,7 @@ require_relative '../classes/item'
 
 describe Item do
   before(:each) do
-    @item = Item.new(1, '2021/11/12', true)
+    @item = Item.new(1, Date.new(2001, 2, 3), true)
   end
 
   context '#new' do
@@ -23,17 +23,33 @@ describe Item do
 
   context '#published_date' do
     it 'can be read' do
-      expect(@item.published_date).to eql('2021/11/12')
+      date = Date.new(2001, 2, 3)
+      expect(@item.published_date).to eql(date)
     end
 
     it 'can not be written' do
       expect { @item.published_date = 3 }.to raise_error(NoMethodError)
+    end
+
+    it 'is an instance of Date' do
+      expect(@item.published_date).to be_instance_of(Date)
     end
   end
 
   context '#archived' do
     it 'is private' do
       expect { @item.archived }.to raise_error(NoMethodError)
+    end
+  end
+
+  context '#can_be_archived?' do
+    it 'return true if published_date is older than 10 years' do
+      expect(@item.can_be_archived?).to be true
+    end
+
+    it 'return false if published_date is smaller than 10 years' do
+      item1 = Item.new(4, Date.new(2015, 2, 3), true)
+      expect(item1.can_be_archived?).to be false
     end
   end
 end
