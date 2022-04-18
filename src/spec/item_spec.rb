@@ -58,4 +58,10 @@ describe Item do
       expect(item.move_to_archive).to be false
     end
   end
+
+  context '#genre' do
+    it "should read genre instance variable even if it's empty" do 
+      expect(@item.genre).to be_nil
+    end
+  end
 end
