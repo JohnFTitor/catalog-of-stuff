@@ -64,10 +64,10 @@ describe Item do
       expect(@item.genre).to be_nil
     end
 
-    it "sets its genre using a setter method" do
+    it 'sets its genre using a setter method' do
       mocked_genre = double('Genre')
       allow(mocked_genre).to receive(:items) { [] }
-      @item.genre=(mocked_genre)
+      @item.genre = (mocked_genre)
       expect(@item.genre).to eql(mocked_genre)
     end
   end
@@ -77,25 +77,24 @@ describe Item do
       expect(@item.label).to be_nil
     end
 
-    it "sets its label using a setter method" do
+    it 'sets its label using a setter method' do
       mocked_label = double('Label')
       allow(mocked_label).to receive(:items) { [] }
-      @item.label=(mocked_label)
+      @item.label = (mocked_label)
       expect(@item.label).to eql(mocked_label)
     end
   end
 
-   context '#author' do
+  context '#author' do
     it "should read author instance variable even if it's empty" do
       expect(@item.author).to be_nil
     end
 
-    it "sets its author using a setter method" do
+    it 'sets its author using a setter method' do
       mocked_author = double('Author')
       allow(mocked_author).to receive(:items) { [] }
-      @item.author=(mocked_author)
+      @item.author = (mocked_author)
       expect(@item.author).to eql(mocked_author)
     end
   end
-
 end

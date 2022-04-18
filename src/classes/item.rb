@@ -14,17 +14,17 @@ class Item
     @archived
   end
 
-  def genre= (genre)
+  def genre=(genre)
     @genre = genre
     genre.items << self unless genre.items.include?(self)
   end
 
-   def label= (label)
+  def label=(label)
     @label = label
     label.items << self unless label.items.include?(self)
   end
 
-   def author= (author)
+  def author=(author)
     @author = author
     author.items << self unless author.items.include?(self)
   end
