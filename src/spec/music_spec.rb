@@ -25,4 +25,11 @@ describe MusicAlbum do
       expect {@music.spotify = true}.to raise_error(NoMethodError)
     end
   end
+
+  context 'Should move to archived' do 
+    it "should be false if on_spotify is false. No matter if it's older" do 
+      move = @music.move_to_archive
+      expect(move).to be false
+    end
+  end
 end
