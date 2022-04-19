@@ -47,4 +47,14 @@ describe Label do
     end
   end
 
+  context '#add_item' do
+    it 'takes item object as parameter and sets the label of the item' do
+      mocked_item = double('item')
+      allow(mocked_item).to receive(:label=) {[]}
+      expect(@label.add_item(mocked_item)).to equal(@label)
+    end
+    it 'giver error if more or less than 1 parameter as input' do
+      expect { @label.add_item }.to raise_error(ArgumentError)
+    end
+  end
 end
