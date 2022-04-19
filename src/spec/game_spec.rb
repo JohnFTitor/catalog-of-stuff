@@ -51,12 +51,12 @@ describe Game do
 
   context '#move_to_archive' do
     it "should return true when parent's method return true and last_played_at is older than 2 years" do
-      game = Game.new('multiplayer1', Date.new(2019, 2, 3), 1, Date.new(2001, 2, 3))
+      game = Game.new(true, Date.new(2019, 2, 3), 1, Date.new(2001, 2, 3))
       expect(game.move_to_archive).to be true
     end
 
     it "should return false when parent's method return false even if last_played_at is older than 2 years" do
-      game = Game.new('multiplayer1', Date.new(2021, 2, 3), 1, Date.new(2020, 2, 3))
+      game = Game.new(true, Date.new(2021, 2, 3), 1, Date.new(2020, 2, 3))
       expect(game.move_to_archive).to be false
     end
 
