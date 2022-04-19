@@ -3,10 +3,10 @@ require 'date'
 class Item
   attr_reader :published_date, :genre, :label, :author
 
-  def initialize(id, published_date, archived)
+  def initialize(id, published_date)
     @id = id
     @published_date = published_date
-    @archived = archived
+    @archived = false
   end
 
   def move_to_archive
