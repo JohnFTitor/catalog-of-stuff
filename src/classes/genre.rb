@@ -1,4 +1,4 @@
-class Genre 
+class Genre
   attr_reader :name
 
   def initialize(id, name)
@@ -12,5 +12,4 @@ class Genre
     @items << item unless @items.include?(item)
     @items
   end
-
 end
