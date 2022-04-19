@@ -30,5 +30,25 @@ describe Genre do
 
       expect(items.length).to be 1
     end
+
+    it 'should add multiple items to genre items array' do 
+      item1 = double('Item', {:genre => nil})
+      item2 = double('Item', {:genre => nil})
+      item3 = double('Item', {:genre => nil})
+
+      @genre.add_item(item1)      
+      @genre.add_item(item2)      
+      items = @genre.add_item(item3)      
+
+      expect(items.length).to be 4
+    end
+
+    it 'item should have genre property equal to self' do 
+      item = double('Item', {:genre => nil})
+
+      @genre.add_item(item)
+
+      expect(item.genre).to eql @genre
+    end
   end
 end
