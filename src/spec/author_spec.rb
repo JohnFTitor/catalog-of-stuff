@@ -4,7 +4,7 @@ describe Author do
     @author = Author.new(1, 'john', 'smith')
   end
   context '#new' do
-    it 'author is an instance of class Author and takes 3 arguments' do
+    it 'author is an instance of class Author and takes 3 parameters' do
       expect(@author).to be_instance_of(Author)
     end
 
@@ -42,6 +42,17 @@ describe Author do
   context '#items' do
     it 'items is private' do
       expect { @author.items }.to raise_error(NoMethodError)
+    end
+  end
+
+  context '#add_item' do
+    it 'take item object as an input and sets the author of the item' do
+      mocked_item = double('item')
+      allow(mocked_item).to receive(:author=) { [] }
+      expect(@author.add_item(mocked_item)).to equal(@author)
+    end
+    it 'gives error if more or less than 1 parameter as input' do
+      expect { @author.add_item }.to raise_error(ArgumentError)
     end
   end
 end
