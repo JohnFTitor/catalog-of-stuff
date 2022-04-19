@@ -9,5 +9,9 @@ describe MusicAlbum do
     it 'should be an instance of MusicAlbum' do
       expect(@music).to be_an_instance_of(MusicAlbum)
     end
+
+    it 'should be a kind of Item' do 
+      expect(@music).to be_a_kind_of(Item)
+    end
   end
 end
