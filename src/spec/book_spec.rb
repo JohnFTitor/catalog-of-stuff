@@ -2,15 +2,15 @@ require_relative '../classes/book'
 
 describe Book do
   before(:each) do
-    @book = Book.new('publisher', 'good', 1, Date.new(2001, 2, 3), false)
+    @book = Book.new('publisher', 'good', 1, Date.new(2001, 2, 3))
   end
 
   context '#new' do
-    it 'is an instance of Book and takes 5 parameter' do
+    it 'is an instance of Book and takes 4 parameter' do
       expect(@book).to be_instance_of(Book)
     end
 
-    it 'gives Argument error when more or less than 5 params given' do
+    it 'gives Argument error when more or less than 4 params given' do
       expect { Book.new('publisher') }.to raise_error(ArgumentError)
     end
 
@@ -41,7 +41,7 @@ describe Book do
 
   context '#move_to_archive' do
     it "should return true if cover_state equals 'bad', even if parent's method returns false" do
-      bad_book = Book.new('publisher', 'bad', 1, Date.new(2015, 2, 3), false)
+      bad_book = Book.new('publisher', 'bad', 1, Date.new(2015, 2, 3))
       expect(bad_book.move_to_archive).to be true
     end
 
@@ -50,7 +50,7 @@ describe Book do
     end
 
     it 'should return false otherwise' do
-      good_book = Book.new('publisher', 'good', 1, Date.new(2015, 2, 3), false)
+      good_book = Book.new('publisher', 'good', 1, Date.new(2015, 2, 3))
       expect(good_book.move_to_archive).to be false
     end
   end
