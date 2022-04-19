@@ -8,4 +8,11 @@ class Game < Item
     @multiplayer = multiplayer
     @last_played_at = last_played_at
   end
+
+  private
+
+  def can_be_archived?
+    duration = Date.today.year - @last_played_at.year
+    super && duration > 2
+  end
 end
