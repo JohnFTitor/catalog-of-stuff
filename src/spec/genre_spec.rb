@@ -2,7 +2,7 @@ require_relative '../classes/genre'
 
 describe Genre do 
   before :all do
-    @genre = Genre.new(id, name)
+    @genre = Genre.new(1, 'Thriller')
   end
   
   context '#new' do 
