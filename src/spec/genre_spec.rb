@@ -1,7 +1,7 @@
 require_relative '../classes/genre'
 
 describe Genre do 
-  before :all do
+  before :each do
     @genre = Genre.new(1, 'Thriller')
   end
   
@@ -11,7 +11,7 @@ describe Genre do
     end
   end
 
-  context 'Should have property name' do 
+  context 'Property name' do 
     it 'should be able to read name' do 
       name = @genre.name
       expect(name).to eql 'Thriller'
@@ -22,7 +22,7 @@ describe Genre do
     end
   end
 
-  context 'Should add item' do 
+  context 'Add item' do 
     it 'should add item to genre items array' do 
       item = double('Item', :genre= => nil)
 
@@ -40,15 +40,24 @@ describe Genre do
       @genre.add_item(item2)      
       items = @genre.add_item(item3)      
 
-      expect(items.length).to be 4
+      expect(items.length).to be 3
     end
 
     it 'item should have genre property equal to self' do 
-      item = spy('Item')
+      item = double('Item', :genre= => nil)
 
-      items = @genre.add_item(item)
+      @genre.add_item(item)
       
       expect(item).to have_received(:genre=).with(@genre)
+    end
+
+    it 'should not accept repeated values' do 
+      item = double('Item', :genre= => nil)
+
+      @genre.add_item(item)
+      items = @genre.add_item(item)
+
+      expect(items.length).to eq 1
     end
   end
 end
