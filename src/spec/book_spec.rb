@@ -41,7 +41,7 @@ describe Book do
 
   context '#move_to_archive' do
     it "should return true if cover_state equals 'bad', even if parent's method returns false" do
-      bad_book = Book.new('publisher', 'bad', 1, Date.new(20_015, 2, 3), false)
+      bad_book = Book.new('publisher', 'bad', 1, Date.new(2015, 2, 3), false)
       expect(bad_book.move_to_archive).to be true
     end
 
@@ -50,7 +50,7 @@ describe Book do
     end
 
     it 'should return false otherwise' do
-      good_book = Book.new('publisher', 'good', 1, Date.new(20_015, 2, 3), false)
+      good_book = Book.new('publisher', 'good', 1, Date.new(2015, 2, 3), false)
       expect(good_book.move_to_archive).to be false
     end
   end
