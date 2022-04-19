@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
 require_relative './classes/app'
+
 def main
   puts 'Welcome to Catalog of my stuff!'
   app = App.new
   loop do
+    puts
     puts "Please choose an option by entering a number:
            1 - List all books
            2 - List all music albums
