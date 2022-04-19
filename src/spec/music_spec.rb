@@ -16,8 +16,9 @@ describe MusicAlbum do
   end
 
   context 'Should have instance of spotify' do 
-    it 'instance can be read' do 
-      expect {@music.spotify}.to_not raise_error(NoMethodError)
+    it 'instance can be read' do
+      value = @music.spotify 
+      expect(value).to be false
     end
 
     it 'instance cannot be written' do 
