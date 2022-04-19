@@ -26,9 +26,25 @@ describe MusicAlbum do
     end
   end
 
-  context 'Should move to archived' do 
+  context 'Should move to archive' do 
     it "should be false if on_spotify is false. No matter if it's older" do 
       move = @music.move_to_archive
+      expect(move).to be false
+    end
+
+    it "should be true if on_spotify is true and it's older than 10 years" do
+      music = MusicAlbum.new(true, 1, Date.new(2001,3,5))
+      
+      move = music.move_to_archive
+      
+      expect(move).to be true
+    end
+
+    it "should be false if on_spotify is true and it's not older than 10 years" do
+      music = MusicAlbum.new(true, 1, Date.new(2015,3,5))
+      
+      move = music.move_to_archive
+
       expect(move).to be false
     end
   end
