@@ -19,7 +19,7 @@ module CommonChecks
       int = gets.chomp
     end
 
-    id.to_i
+    int.to_i
   end
 
   def verify_date(message: 'Enter your value :', error: 'Wrong Value. Please enter again :')
