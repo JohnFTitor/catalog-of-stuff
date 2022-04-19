@@ -17,4 +17,29 @@ describe Game do
       expect(@game).to be_kind_of(Item)
     end
   end
+
+  context '#multiplayer' do
+    it 'can be read' do
+      expect(@game.multiplayer).to be true
+    end
+
+    it "can't be written" do
+      expect { @game.multiplayer = false }.to raise_error(NoMethodError)
+    end
+  end
+
+  context '#last_played_at' do
+    it 'can be read' do
+      date = Date.new(2021, 2, 3)
+      expect(@game.last_played_at).to eql(date)
+    end
+
+    it "can't be written" do
+      expect { @game.last_played_at = Date.new(2005, 2, 3) }.to raise_error(NoMethodError)
+    end
+
+    it 'is an instance of Date' do
+      expect(@game.last_played_at).to be_instance_of(Date)
+    end
+  end
 end
