@@ -1,14 +1,14 @@
 class MusicAlbum < Item
-  attr_reader :spotify
+  attr_reader :on_spotify
 
-  def initialize(spotify, id, date)
-    super(id, date)
-    @spotify = spotify
+  def initialize(on_spotify, id, published_date)
+    super(id, published_date)
+    @on_spotify = on_spotify
   end
 
   private
 
   def can_be_archived?
-    super && @spotify
+    super && @on_spotify
   end
 end
