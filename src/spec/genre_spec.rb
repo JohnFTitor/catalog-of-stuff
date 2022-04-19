@@ -21,4 +21,14 @@ describe Genre do
       expect {@genre.name = 'Something'}.to raise_error(NoMethodError)
     end
   end
+
+  context 'Should add item' do 
+    it 'should add item to genre items array' do 
+      item = double('Item', {:genre => nil})
+
+      items = @genre.add_item(item)
+
+      expect(items.length).to be 1
+    end
+  end
 end
