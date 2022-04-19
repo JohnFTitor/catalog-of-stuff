@@ -48,4 +48,10 @@ describe MusicAlbum do
       expect(move).to be false
     end
   end
+
+  context '#can_be_archived?' do 
+    it 'should be private' do 
+      expect {@music.can_be_archived?}.to raise_error(NoMethodError)
+    end
+  end
 end
