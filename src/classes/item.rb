@@ -1,6 +1,8 @@
 require 'date'
+require_relative '../modules/json_methods'
 
 class Item
+  include JsonMethods
   attr_reader :published_date, :genre, :label, :author
 
   def initialize(id, published_date)
