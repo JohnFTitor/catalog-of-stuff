@@ -15,4 +15,36 @@ describe Label do
     end
   end
 
+  context '#id' do
+    it 'is private' do
+      expect { @label.id }.to raise_error(NoMethodError)
+    end
+  end
+
+  context '#items' do
+    it 'is private' do
+      expect { @label.items }.to raise_error(NoMethodError)
+    end
+  end
+
+  context '#title' do
+    it 'can be read' do
+      expect(@label.title).to eql('best seller')
+    end
+
+    it 'can not be written' do
+      expect { @label.title = 'new' }.to raise_error(NoMethodError)
+    end
+  end
+
+  context '#color' do
+    it 'can be read' do
+      expect(@label.color).to eql('blue')
+    end
+
+    it 'can not be written' do
+      expect { @label.cover_state = 'red' }.to raise_error(NoMethodError)
+    end
+  end
+
 end
