@@ -6,6 +6,8 @@ class MusicAlbum < Item
     @spotify = spotify
   end
 
+  private 
+  
   def can_be_archived?
     super && @spotify  
   end
