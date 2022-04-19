@@ -10,6 +10,6 @@ class Label
 
   def add_item(item)
     @items << item unless @items.include?(self)
-    item.label= self
+    item.label = self
   end
 end
