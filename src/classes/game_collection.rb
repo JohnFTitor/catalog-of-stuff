@@ -27,10 +27,9 @@ class GameCollection
   def list
     system('clear')
     @games.each_with_index do |game, index|
-      print "#{index}) Multiplayer: #{game.multiplayer}, Publish Date: #{game.published_date}, "
-      print "Last Played at: #{game.last_played_at}, Label: #{game.label.title} \n"
-      print "Author: #{game.author.first_name} #{game.author.last_name}\n"
-      print "Genre: #{game.genre.name}\n"
+      print "#{index}) Label: #{game.label.title}, Author: #{game.author.first_name} #{game.author.last_name}\n"
+      print "Genre: #{game.genre.name}, Multiplayer: #{game.multiplayer}, Last Played at: #{game.last_played_at}\n"
+      print "Publish Date: #{game.published_date}\n\n"
     end
   end
 end
