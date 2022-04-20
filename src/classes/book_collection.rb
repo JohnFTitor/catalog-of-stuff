@@ -10,7 +10,7 @@ class BookCollection
     @books = []
   end
 
-  def add(label_coll)
+  def add(genre_coll, label_coll, _author_coll)
     id = verify_int(message: 'ID: ', error: 'Please input correct numeric id: ')
     publish_date = verify_date(message: 'Publish Date [yyyy-mm-dd]: ',
                                error: 'Please input date in the correct format: ')
@@ -18,7 +18,7 @@ class BookCollection
     cover_state = verify_cover_state
     new_book = Book.new(publisher, cover_state, id, publish_date)
     new_book.genre = genre_coll.get
-    new_book.author = author_coll.get
+    # new_book.author = author_coll.get
     new_book.label = label_coll.get
     @books << new_book
     print 'Book Created Successfully. Press enter to continue. '
