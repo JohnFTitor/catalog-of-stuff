@@ -1,12 +1,14 @@
 require_relative './music'
 require_relative '../modules/common_checks'
+require_relative '../modules/json_handler'
 
 class MusicCollection
   attr_reader :album
   include CommonChecks
+  include JsonHandler
 
   def initialize
-    @album = []
+    @album = load_album
   end
 
   def add(genre_collection, label_collection, author_collection)
@@ -35,5 +37,9 @@ class MusicCollection
       print ", Published on #{music.published_date.strftime('%a %d %b %Y')}"
     end
     puts
+  end
+
+  def load_album 
+    @album = load_json('music.json')
   end
 end

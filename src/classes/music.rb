@@ -13,4 +13,10 @@ class MusicAlbum < Item
   def can_be_archived?
     super && @on_spotify
   end
+
+  def set_arguments 
+    arguments, associations = super
+    arguments = [@on_spotify, @id, @published_date]
+    [arguments, associations]
+  end
 end
