@@ -79,7 +79,7 @@ describe Item do
 
     it 'sets its label using a setter method' do
       mocked_label = double('Label')
-      allow(mocked_label).to receive(:items) { [] }
+      allow(mocked_label).to receive(:add_item) { [] }
       @item.label = (mocked_label)
       expect(@item.label).to eql(mocked_label)
     end

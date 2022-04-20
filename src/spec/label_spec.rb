@@ -49,7 +49,7 @@ describe Label do
 
   context '#add_item' do
     it 'takes item object as parameter and sets the label of the item' do
-      mocked_item = double('item')
+      mocked_item = spy('item')
       allow(mocked_item).to receive(:label=) { [] }
       expect(@label.add_item(mocked_item)).to equal(@label)
     end
