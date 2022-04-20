@@ -58,8 +58,8 @@ class App
     write_json('src/json/music.json', @music_collection.album)
     write_json('src/json/books.json', @book_collection.books)
     write_json('src/json/labels.json', @label_collection.list)
-    write_json('src/json/games.json', @book_collection.games)
-    write_json('src/json/author.json', @book_collection.list)
+    write_json('src/json/games.json', @game_collection.games)
+    write_json('src/json/author.json', @author_collection.list)
     'exit'
   end
 end
