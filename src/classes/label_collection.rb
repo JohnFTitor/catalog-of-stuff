@@ -10,7 +10,7 @@ class LabelCollection < TypeCollection
   def get
     choice = super
     if choice == 1
-      list
+      display
       index = verify_index(@list)
       @list[index]
     else
@@ -18,7 +18,7 @@ class LabelCollection < TypeCollection
     end
   end
 
-  def list
+  def display
     @list.each_with_index { |label, index| puts "#{index}) Title: #{label.title},  Color: #{label.color}" }
   end
 

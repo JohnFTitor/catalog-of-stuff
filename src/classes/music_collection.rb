@@ -2,6 +2,7 @@ require_relative './music'
 require_relative '../modules/common_checks'
 
 class MusicCollection
+  attr_reader :album
   include CommonChecks
 
   def initialize

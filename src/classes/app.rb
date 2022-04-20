@@ -34,9 +34,9 @@ class App
     when 1 then @book_collection.list
     when 2 then @music_collection.list
     when 3 then @game_collection.list
-    when 4 then @genre_collection.list
-    when 5 then @label_collection.list
-    when 6 then @author_collection.list
+    when 4 then @genre_collection.display
+    when 5 then @label_collection.display
+    when 6 then @author_collection.display
     end
     print "\nPress Enter to return"
     gets.chomp

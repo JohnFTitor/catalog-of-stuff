@@ -2,6 +2,7 @@ require_relative './game'
 require_relative '../modules/common_checks'
 
 class GameCollection
+  attr_reader :games
   include CommonChecks
 
   def initialize

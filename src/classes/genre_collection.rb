@@ -7,7 +7,7 @@ class GenreCollection < TypeCollection
     @list = generate_defaults
   end
 
-  def list
+  def display
     @list.each_with_index do |genre, index|
       puts "#{index}: #{genre.name.capitalize}"
     end
@@ -16,7 +16,7 @@ class GenreCollection < TypeCollection
   def get
     choice = super
     if choice == 1
-      list
+      display
       index = verify_index(@list, message: "Select a Genre by it's index: ")
       @list[index]
     else

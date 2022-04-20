@@ -10,7 +10,7 @@ class AuthorCollection < TypeCollection
   def get
     choice = super
     if choice == 1
-      list
+      display
       index = verify_index(@list)
       @list[index]
     else
@@ -18,7 +18,7 @@ class AuthorCollection < TypeCollection
     end
   end
 
-  def list
+  def display
     puts
     @list.each_with_index do |author, index|
       puts "#{index}) First Name: #{author.first_name},  Last Name: #{author.last_name}"

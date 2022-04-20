@@ -1,5 +1,6 @@
 require_relative '../modules/common_checks'
 class TypeCollection
+  attr_reader :list
   include CommonChecks
 
   def initialize
