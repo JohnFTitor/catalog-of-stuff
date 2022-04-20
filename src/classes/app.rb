@@ -1,22 +1,23 @@
-require_relative './book_collection.rb'
-require_relative './label_collection.rb'
+require_relative './book_collection'
+require_relative './label_collection'
 class App
   def initialize
-    @book_collection = BookCollection.new()
+    @book_collection = BookCollection.new
     @game_collection = []
     @music_collection = []
     @genre_collection = []
     @author_collection = []
-    @label_collection = LabelCollection.new()
+    @label_collection = LabelCollection.new
   end
 
   def run(num)
-    system("clear")
-    if (1..6).cover?(num)
+    system('clear')
+    case num
+    when 1..6
       list_tasks(num)
-    elsif (7..9).cover?(num)
+    when 7..9
       add_tasks(num)
-    elsif num == 10
+    when 10
       handle_exit
     else
       puts 'Wrong input, Returning to main menu'
@@ -34,7 +35,7 @@ class App
     end
     print "\nPress Enter to return"
     gets.chomp
-    system("clear")
+    system('clear')
   end
 
   def add_tasks(num)
