@@ -66,7 +66,7 @@ describe Item do
 
     it 'sets its genre using a setter method' do
       mocked_genre = double('Genre')
-      allow(mocked_genre).to receive(:items) { [] }
+      allow(mocked_genre).to receive(:add_item) { [] }
       @item.genre = (mocked_genre)
       expect(@item.genre).to eql(mocked_genre)
     end
