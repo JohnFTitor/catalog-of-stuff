@@ -1,6 +1,20 @@
 /* Database schema to keep the structure of entire database. */
 -- to create the database: createdb catalog_of_stuff
 
+--Label
+CREATE TABLE label(
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  title VARCHAR(100),
+  color VARCHAR(100)
+);
+
+--Author
+CREATE TABLE author(
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  first_name VARCHAR(100),
+  last_name VARCHAR(100)
+);
+
 -- Book
 CREATE TABLE book(
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -13,13 +27,6 @@ CREATE TABLE book(
   FOREIGN KEY (genre_id) REFERENCES genre(id) ON DELETE SET NULL ON UPDATE CASCADE,
   FOREIGN KEY (author_id) REFERENCES author(id) ON DELETE SET NULL ON UPDATE CASCADE,
   FOREIGN KEY (label_id) REFERENCES label(id) ON DELETE SET NULL ON UPDATE CASCADE
-);
-
---Label
-CREATE TABLE label(
-  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  title VARCHAR(100),
-  color VARCHAR(100)
 );
 
 --Item
@@ -47,11 +54,4 @@ CREATE TABLE game(
   FOREIGN KEY (genre_id) REFERENCES genre(id) ON DELETE SET NULL ON UPDATE CASCADE,
   FOREIGN KEY (author_id) REFERENCES author(id) ON DELETE SET NULL ON UPDATE CASCADE,
   FOREIGN KEY (label_id) REFERENCES label(id) ON DELETE SET NULL ON UPDATE CASCADE
-);
-
---Author
-CREATE TABLE author(
-  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  first_name VARCHAR(100),
-  last_name VARCHAR(100)
 );
