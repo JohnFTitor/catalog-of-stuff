@@ -4,8 +4,8 @@
 -- Book
 CREATE TABLE book(
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  publish_date VARCHAR(100),
-  publisher DATE,
+  publish_date DATE,
+  publisher VARCHAR(100),
   cover_state VARCHAR(4),
   genre_id INT,
   author_id INT,
