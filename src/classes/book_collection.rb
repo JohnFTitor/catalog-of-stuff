@@ -1,13 +1,15 @@
 require_relative './book'
 require_relative '../modules/common_checks'
+require_relative '../modules/json_handler'
 
 class BookCollection
   attr_reader :books
 
   include CommonChecks
+  include JsonHandler
 
   def initialize
-    @books = []
+    @books = load_json('src/json/books.json')
   end
 
   def add(genre_coll, label_coll, author_coll)

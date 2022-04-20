@@ -8,7 +8,7 @@ class MusicCollection
   include JsonHandler
 
   def initialize
-    @album = load_album
+    @album = load_json('src/json/music.json')
   end
 
   def add(genre_collection, label_collection, author_collection)
@@ -39,7 +39,4 @@ class MusicCollection
     puts
   end
 
-  def load_album 
-    @album = load_json('music.json')
-  end
 end

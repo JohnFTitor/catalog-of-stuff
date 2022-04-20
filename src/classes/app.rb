@@ -35,9 +35,7 @@ class App
   def list_tasks(num)
     case num
     when 1 then @book_collection.list
-    when 2 
-      write_json('music.json', @music_collection.album)
-      @music_collection.list
+    when 2 then @music_collection.list
     when 3 then @game_collection.list
     when 4 then @genre_collection.display
     when 5 then @label_collection.display
@@ -54,5 +52,12 @@ class App
     when 8 then @music_collection.add(@genre_collection, @label_collection, @author_collection)
     when 9 then @game_collection.add(@genre_collection, @label_collection, @author_collection)
     end
+  end
+
+  def handle_exit
+      write_json('src/json/music.json', @music_collection.album)
+      write_json('src/json/books.json', @book_collection.books)
+      write_json('src/json/labels.json', @label_collection.list)
+      'exit'
   end
 end

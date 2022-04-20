@@ -1,0 +1,18 @@
+[
+  {
+    "json_class" : "Label",
+    "arguments" : [
+      1,
+      "Gift",
+      "Yellow"
+    ]
+  },
+  {
+    "json_class" : "Label",
+    "arguments" : [
+      2,
+      "New",
+      "Blue"
+    ]
+  }
+]
