@@ -1,13 +1,18 @@
+require_relative '../modules/common_checks'
 class TypeCollection
+  include CommonChecks
+
   def initialize
-    @items = []
+    @list = []
   end
 
   def get
-    puts "[1] Select a #{self.class.name} from the list or [2] create a new #{self.class.name}"
+    type = @list[0].class.name
+    message = "Select [1] for a #{type} from the list or Select [2] to create a new #{type}: "
+    verify_range(1, 2, message: message, error: 'Please enter valid choice: ')
   end
 
   def list
-    puts @items
+    puts @list
   end
 end
