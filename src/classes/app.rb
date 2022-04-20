@@ -1,19 +1,26 @@
+require_relative './book_collection'
+require_relative './label_collection'
+require_relative './genre_collection'
+require_relative './music_collection'
+
 class App
   def initialize
-    @book_collection = []
+    @book_collection = BookCollection.new
     @game_collection = []
-    @music_collection = []
-    @genre_collection = []
+    @music_collection = MusicCollection.new
+    @genre_collection = GenreCollection.new
     @author_collection = []
-    @label_collection = []
+    @label_collection = LabelCollection.new
   end
 
   def run(num)
-    if (1..6) == (num)
+    system('clear')
+    case num
+    when 1..6
       list_tasks(num)
-    elsif (7..9) == (num)
+    when 7..9
       add_tasks(num)
-    elsif num == 10
+    when 10
       handle_exit
     else
       puts 'Wrong input, Returning to main menu'
@@ -29,11 +36,14 @@ class App
     when 5 then @label_collection.list
     when 6 then @author_collection.list
     end
+    print "\nPress Enter to return"
+    gets.chomp
+    system('clear')
   end
 
   def add_tasks(num)
     case num
-    when 7 then @book_collection.add(@genre_collection, @label_collection, @author_collection)
+    when 7 then @book_collection.add(@label_collection)
     when 8 then @music_collection.add(@genre_collection, @label_collection, @author_collection)
     when 9 then @game_collection.add(@genre_collection, @label_collection, @author_collection)
     end
