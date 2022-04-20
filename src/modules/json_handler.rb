@@ -1,4 +1,5 @@
 require 'json'
+require 'json/add/date'
 
 module JsonHandler
   def write_json(path, arr)
