@@ -46,13 +46,12 @@ describe Author do
   end
 
   context '#add_item' do
-    it 'take item object as an input and sets the author of the item' do
-      mocked_item = double('item')
-      allow(mocked_item).to receive(:author=) { [] }
-      expect(@author.add_item(mocked_item)).to equal(@author)
-    end
-    it 'gives error if more or less than 1 parameter as input' do
-      expect { @author.add_item }.to raise_error(ArgumentError)
+    it 'item should have author property equal to self' do
+      item = spy('Item')
+
+      @author.add_item(item)
+
+      expect(item).to have_received(:author=).with(@author)
     end
   end
 end

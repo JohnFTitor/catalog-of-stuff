@@ -92,7 +92,7 @@ describe Item do
 
     it 'sets its author using a setter method' do
       mocked_author = double('Author')
-      allow(mocked_author).to receive(:items) { [] }
+      allow(mocked_author).to receive(:add_item) { [] }
       @item.author = (mocked_author)
       expect(@item.author).to eql(mocked_author)
     end
