@@ -12,3 +12,10 @@ CREATE TABLE book(
   label_id INT,
   FOREIGN KEY(label_id) references label(id) ON DELETE SET NULL ON UPDATE CASCADE
 );
+
+--Label
+CREATE TABLE label(
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  title VARCHAR(100),
+  color VARCHAR(100)
+);
