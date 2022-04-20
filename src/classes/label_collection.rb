@@ -19,7 +19,6 @@ class LabelCollection < TypeCollection
   end
 
   def list
-    puts
     @list.each_with_index { |label, index| puts "#{index}) Title: #{label.title},  Color: #{label.color}" }
   end
 
