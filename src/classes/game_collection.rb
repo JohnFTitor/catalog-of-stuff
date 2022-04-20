@@ -8,7 +8,7 @@ class GameCollection
     @games = []
   end
 
-  def add(label_coll, author_coll, genre_coll)
+  def add(genre_coll, label_coll, author_coll)
     id = verify_int(message: 'ID: ', error: 'Please input correct numeric id: ')
     publish_date = verify_date(message: 'Publish Date [yyyy-mm-dd]: ',
                                error: 'Please input date in the correct format: ')
@@ -30,6 +30,7 @@ class GameCollection
       print "#{index}) Multiplayer: #{game.multiplayer}, Publish Date: #{game.published_date}, "
       print "Last Played at: #{game.last_played_at}, Label: #{game.label.title} \n"
       print "Author: #{game.author.first_name} #{game.author.last_name}\n"
+      print "Genre: #{game.genre.name}\n"
     end
   end
 end
