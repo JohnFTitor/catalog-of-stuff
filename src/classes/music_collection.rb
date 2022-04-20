@@ -16,5 +16,20 @@ class MusicCollection
     music = MusicAlbum.new(on_spotify, id, published_date)
     music.label = _label_collection.get
     music.genre = _genre_collection.get
+    @album << music
+    puts
+    puts 'Music Track create succesfully. Press enter to continue'
+    gets.chomp
+  end
+
+  def list 
+    @album.each_with_index do |music, index|
+      puts 
+      print "[#{index}] => Label: #{music.label.title.capitalize}, Color: #{music.label.color.capitalize}, Genre: #{music.genre.name.capitalize} "
+      spotify = music.on_spotify ? ', Track is on Spotify ' : ", Track isn't on Spotify "
+      print spotify
+      print ", Published on #{music.published_date.strftime('%a %d %b %Y')}"
+    end
+    puts
   end
 end

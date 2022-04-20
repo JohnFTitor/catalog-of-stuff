@@ -21,7 +21,9 @@ class GenreCollection < TypeCollection
     else
       id = verify_int(message: 'Specify the Genre Id: ')
       name = verify_str(message: 'Specify a Genre name: ')
-      return Genre.new(id, name)     
+      genre = Genre.new(id, name)
+      @list << genre
+      genre     
     end
   end
 
