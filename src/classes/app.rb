@@ -4,8 +4,11 @@ require_relative './genre_collection'
 require_relative './music_collection'
 require_relative './game_collection'
 require_relative './author_collection'
+require_relative '../modules/json_handler'
 
 class App
+  include JsonHandler
+
   def initialize
     @book_collection = BookCollection.new
     @game_collection = GameCollection.new
@@ -32,7 +35,9 @@ class App
   def list_tasks(num)
     case num
     when 1 then @book_collection.list
-    when 2 then @music_collection.list
+    when 2 
+      write_json('music.json', @music_collection.album)
+      @music_collection.list
     when 3 then @game_collection.list
     when 4 then @genre_collection.display
     when 5 then @label_collection.display
