@@ -17,8 +17,8 @@ class BookCollection
     publisher = verify_str(message: 'Publisher: ', error: 'Please input a string: ')
     cover_state = verify_cover_state
     new_book = Book.new(publisher, cover_state, id, publish_date)
-    # new_book.genre= genre_coll.get
-    # new_book.author= author_coll.get
+    new_book.genre= genre_coll.get
+    new_book.author= author_coll.get
     new_book.label = label_coll.get
     @books << new_book
     print 'Book Created Successfully. Press enter to continue. '
@@ -29,7 +29,8 @@ class BookCollection
     system('clear')
     @books.each_with_index do |book, index|
       print "#{index}) Publisher: #{book.publisher.capitalize}, Publish Date: #{book.published_date}, "
-      print "CoverState: #{book.cover_state.capitalize}, Label: #{book.label.title} \n"
+      print "CoverState: #{book.cover_state.capitalize}, Label: #{book.label.title}, Author: #{book.author.first_name} #{book.author.last_name}"
+      print "Genre: #{book.genre.name} \n"
     end
   end
 
