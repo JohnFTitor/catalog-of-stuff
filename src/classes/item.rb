@@ -28,7 +28,7 @@ class Item
 
   def author=(author)
     @author = author
-    author.items << self unless author.items.include?(self)
+    author.add_item(self)
   end
 
   private
