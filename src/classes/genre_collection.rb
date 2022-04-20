@@ -12,6 +12,19 @@ class GenreCollection < TypeCollection
     end
   end
 
+  def get 
+    choice = super
+    if choice === 1 
+      list
+      index = verify_index(@list, message: "Select a Genre by it's index: ")
+      return @list[index]       
+    else
+      id = verify_int(message: 'Specify the Genre Id: ')
+      name = verify_str(message: 'Specify a Genre name: ')
+      return Genre.new(id, name)     
+    end
+  end
+
   private
 
   def generate_defaults
