@@ -56,10 +56,9 @@ module CommonChecks
   end
 
   def yes_or_not(message: 'Enter your option (Y/N)', error: 'Wrong Value. Please enter again')
-    puts "\n"
     option = true
     loop do
-      puts message
+      print message
       evaluate = gets.chomp.downcase
       case evaluate
       when 'n'
