@@ -10,7 +10,9 @@ CREATE TABLE book(
   genre_id INT,
   author_id INT,
   label_id INT,
-  FOREIGN KEY(label_id) references label(id) ON DELETE SET NULL ON UPDATE CASCADE
+  FOREIGN KEY (genre_id) REFERENCES genre(id) ON DELETE SET NULL ON UPDATE CASCADE,
+  FOREIGN KEY (author_id) REFERENCES author(id) ON DELETE SET NULL ON UPDATE CASCADE,
+  FOREIGN KEY (label_id) REFERENCES label(id) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 --Label
