@@ -1,7 +1,7 @@
 module CommonChecks
   def verify_index(array, message: 'Select by index: ', error: 'Index out of range. Pick again: ')
     loop do
-      index = verify_int(message: message) - 1
+      index = verify_int(message: message)
       value = array[index]
       return index if value
 
