@@ -39,7 +39,7 @@ class App
 
   def add_tasks(num)
     case num
-    when 7 then @book_collection.add( @label_collection)
+    when 7 then @book_collection.add(@label_collection)
     when 8 then @music_collection.add(@genre_collection, @label_collection, @author_collection)
     when 9 then @game_collection.add(@genre_collection, @label_collection, @author_collection)
     end
