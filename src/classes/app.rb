@@ -1,11 +1,13 @@
 require_relative './book_collection'
 require_relative './label_collection'
+require_relative './genre_collection'
+
 class App
   def initialize
     @book_collection = BookCollection.new
     @game_collection = []
     @music_collection = []
-    @genre_collection = []
+    @genre_collection = GenreCollection.new
     @author_collection = []
     @label_collection = LabelCollection.new
   end
