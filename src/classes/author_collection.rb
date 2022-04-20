@@ -1,10 +1,14 @@
 require_relative './author'
 require_relative './type_collection'
+require_relative '../modules/json_handler'
 
 class AuthorCollection < TypeCollection
+  include JsonHandler
+  attr_reader :list
+
   def initialize
     super
-    create_defaults if @list.length.zero?
+    @list = create_defaults
   end
 
   def get
@@ -39,6 +43,10 @@ class AuthorCollection < TypeCollection
   def create_defaults
     author1 = Author.new(1, 'Stephen', 'King')
     author2 = Author.new(2, 'John', 'Smith')
-    @list.push(author1, author2)
+    if load_json('src/json/author.json').empty?
+      @list.push(author1, author2)
+    else
+      @list = load_json('src/json/author.json')
+    end
   end
 end
