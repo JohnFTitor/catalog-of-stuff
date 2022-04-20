@@ -14,5 +14,7 @@ class MusicCollection
                                  error: 'Wrong Format. Enter again [yyyy-mm-dd]: ')
     on_spotify = yes_or_not(message: 'Is this track on Spotify (Y/N) ')                             
     music = MusicAlbum.new(on_spotify, id, published_date)
+    music.label = _label_collection.get
+    music.genre = _genre_collection.get
   end
 end
