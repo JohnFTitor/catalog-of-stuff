@@ -1,12 +1,11 @@
 module CommonChecks
-  def verify_index(array, message: 'Select by index', error: 'Index out of range. Pick again')
-    puts "\n"
+  def verify_index(array, message: 'Select by index: ', error: 'Index out of range. Pick again: ')
     loop do
-      index = int_check(message: message) - 1
+      index = verify_int(message: message) - 1
       value = array[index]
       return index if value
 
-      puts error
+      print error
     end
   end
 
@@ -35,7 +34,6 @@ module CommonChecks
   end
 
   def verify_str(message: 'Enter your value :', error: 'Wrong Value. Please enter again :')
-    puts "\n"
     print message
     str = gets.chomp
     loop do
@@ -45,5 +43,15 @@ module CommonChecks
       str = gets.chomp
     end
     str
+  end
+
+  def verify_range(first, last, message: 'Select Value: ', error: 'Please input value in range: ')
+    print message
+    input = gets.chomp.strip.to_i
+    until (first..last).cover?(input)
+      print error
+      input = gets.chomp.strip.to_i
+    end
+    input
   end
 end
