@@ -4,7 +4,7 @@ require_relative './classes/app'
 def main
   app = App.new
   loop do
-    system("clear")
+    system('clear')
     puts 'Welcome to Catalog of my stuff!'
     puts
     puts "Please choose an option by entering a number:
