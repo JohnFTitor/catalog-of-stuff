@@ -55,12 +55,12 @@ class App
   end
 
   def handle_exit
-    write_json('src/json/music.json', @music_collection.album)
-    write_json('src/json/books.json', @book_collection.books)
-    write_json('src/json/games.json', @game_collection.games)
-    write_json('src/json/labels.json', @label_collection.list)
-    write_json('src/json/author.json', @author_collection.list)
-    write_json('src/json/genres.json', @genre_collection.list)
+    write_json(File.join(File.dirname(__FILE__), '../json/music.json'), @music_collection.album)
+    write_json(File.join(File.dirname(__FILE__), '../json/books.json'), @book_collection.books)
+    write_json(File.join(File.dirname(__FILE__), '../json/games.json'), @game_collection.games)
+    write_json(File.join(File.dirname(__FILE__), '../json/labels.json'), @label_collection.list)
+    write_json(File.join(File.dirname(__FILE__), '../json/author.json'), @author_collection.list)
+    write_json(File.join(File.dirname(__FILE__), '../json/genres.json'), @genre_collection.list)
     'exit'
   end
 end

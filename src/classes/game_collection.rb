@@ -9,7 +9,7 @@ class GameCollection
   include JsonHandler
 
   def initialize
-    @games = load_json('src/json/games.json')
+    @games = load_json(File.join(File.dirname(__FILE__), '../json/games.json'))
   end
 
   def add(genre_coll, label_coll, author_coll)

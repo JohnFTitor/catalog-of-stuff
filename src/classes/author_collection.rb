@@ -23,7 +23,6 @@ class AuthorCollection < TypeCollection
   end
 
   def display
-    puts
     @list.each_with_index do |author, index|
       puts "#{index}) First Name: #{author.first_name},  Last Name: #{author.last_name}"
     end
@@ -43,10 +42,11 @@ class AuthorCollection < TypeCollection
   def create_defaults
     author1 = Author.new(1, 'Stephen', 'King')
     author2 = Author.new(2, 'John', 'Smith')
-    if load_json('src/json/author.json').empty?
+    authors = load_json(File.join(File.dirname(__FILE__), '../json/author.json'))
+    if authors.empty?
       @list.push(author1, author2)
     else
-      @list = load_json('src/json/author.json')
+      @list = authors
     end
   end
 end

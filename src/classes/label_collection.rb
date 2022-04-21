@@ -38,10 +38,11 @@ class LabelCollection < TypeCollection
   def create_defaults
     gift = Label.new(1, 'Gift', 'Yellow')
     new_label = Label.new(2, 'New', 'Blue')
-    if load_json('src/json/labels.json').empty?
+    labels = load_json(File.join(File.dirname(__FILE__), '../json/labels.json'))
+    if labels.empty?
       @list.push(gift, new_label)
     else
-      @list = load_json('src/json/labels.json')
+      @list = labels
     end
   end
 end

@@ -9,7 +9,7 @@ class BookCollection
   include JsonHandler
 
   def initialize
-    @books = load_json('src/json/books.json')
+    @books = load_json(File.join(File.dirname(__FILE__), '../json/books.json'))
   end
 
   def add(genre_coll, label_coll, author_coll)
