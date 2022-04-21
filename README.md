@@ -1,9 +1,13 @@
 # Catalog of Stuff
 
-> Ruby Capstone Project meant to wrap the concepts of Ruby language and SQL Databases, creating a OOP project based on an UML diagram
-
+> Ruby Capstone Project meant to wrap the concepts of Ruby language and SQL Databases, creating a OOP project based on an UML diagram.
 > In this project, we created a console app that will help us to keep a record of different types of things we won: books, music albums, and games. Everything will be based on the UML class diagram presented below. The data will be stored in JSON files but we also prepared a database with tables structure analogical to our program's class structure.
-> ![UML class diagram](catalog_of_my_things.png)
+
+![UML class diagram](catalog_of_my_things.png)
+
+### Preview
+
+![console app](screenshot.gif)
 
 ### Requirements
 
