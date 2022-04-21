@@ -1,4 +1,4 @@
-require_relative '../modules/json_methods.rb'
+require_relative '../modules/json_methods'
 class Genre
   attr_reader :name
 
@@ -16,7 +16,7 @@ class Genre
     @items << item unless @items.include?(item)
   end
 
-   def self.json_create(object)
+  def self.json_create(object)
     new(*object['arguments'])
   end
 end

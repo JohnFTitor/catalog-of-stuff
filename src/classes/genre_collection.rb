@@ -39,10 +39,10 @@ class GenreCollection < TypeCollection
     suspense = Genre.new(2, 'suspense')
     science_fiction = Genre.new(3, 'science fiction')
     list = load_json(File.join(File.dirname(__FILE__), '../json/genres.json'))
-    unless list.empty? 
-      @list = list 
-    else
-      @list = [thriller, suspense, science_fiction]
-    end
+    @list = if list.empty?
+              [thriller, suspense, science_fiction]
+            else
+              list
+            end
   end
 end

@@ -4,6 +4,7 @@ require_relative '../modules/json_handler'
 
 class MusicCollection
   attr_reader :album
+
   include CommonChecks
   include JsonHandler
 
@@ -37,5 +38,4 @@ class MusicCollection
     end
     puts
   end
-
 end

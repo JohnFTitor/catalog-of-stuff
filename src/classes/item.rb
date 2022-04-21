@@ -54,7 +54,7 @@ class Item
     Date.today.year - @published_date.year >= 10
   end
 
-  def set_arguments 
+  def set_arguments
     arguments = [@id, @published_date]
     associations = [@genre, @label, @author]
     [arguments, associations]

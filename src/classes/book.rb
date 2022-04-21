@@ -16,7 +16,7 @@ class Book < Item
   end
 
   def set_arguments
-    arguments, associations = super
+    associations = super[1]
     arguments = [@publisher, @cover_state, @id, @published_date]
     [arguments, associations]
   end

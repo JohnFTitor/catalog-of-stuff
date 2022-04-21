@@ -3,9 +3,6 @@ require_relative './classes/app'
 require 'fileutils'
 
 def main
-  unless Dir.exist?(File.join(File.dirname(__FILE__), './json'))
-    FileUtils.mkdir_p(File.join(File.dirname(__FILE__), './json'))
-  end
   app = App.new
   loop do
     system('clear')

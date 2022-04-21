@@ -17,7 +17,7 @@ class Game < Item
   end
 
   def set_arguments
-    arguments, associations = super
+    associations = super[1]
     arguments = [@multiplayer, @last_played_at, @id, @published_date]
     [arguments, associations]
   end

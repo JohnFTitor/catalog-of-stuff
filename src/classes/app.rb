@@ -55,6 +55,9 @@ class App
   end
 
   def handle_exit
+    unless Dir.exist?(File.join(File.dirname(__FILE__), '../json'))
+      FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '../json'))
+    end
     write_json(File.join(File.dirname(__FILE__), '../json/music.json'), @music_collection.album)
     write_json(File.join(File.dirname(__FILE__), '../json/books.json'), @book_collection.books)
     write_json(File.join(File.dirname(__FILE__), '../json/games.json'), @game_collection.games)

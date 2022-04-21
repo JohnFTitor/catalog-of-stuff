@@ -14,8 +14,8 @@ class MusicAlbum < Item
     super && @on_spotify
   end
 
-  def set_arguments 
-    arguments, associations = super
+  def set_arguments
+    associations = super[1]
     arguments = [@on_spotify, @id, @published_date]
     [arguments, associations]
   end

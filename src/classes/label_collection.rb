@@ -4,6 +4,7 @@ require_relative '../modules/json_handler'
 class LabelCollection < TypeCollection
   include JsonHandler
   attr_reader :list
+
   def initialize
     super
     @list = create_defaults
