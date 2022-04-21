@@ -1,7 +1,11 @@
 require_relative './type_collection'
 require_relative './genre'
+require_relative '../modules/json_handler'
 
 class GenreCollection < TypeCollection
+  include JsonHandler
+  attr_reader :list
+
   def initialize
     super
     @list = generate_defaults
@@ -34,6 +38,11 @@ class GenreCollection < TypeCollection
     thriller = Genre.new(1, 'thriller')
     suspense = Genre.new(2, 'suspense')
     science_fiction = Genre.new(3, 'science fiction')
-    @list = [thriller, suspense, science_fiction]
+    list = load_json('src/json/genres.json')
+    unless list.empty? 
+      @list = list 
+    else
+      @list = [thriller, suspense, science_fiction]
+    end
   end
 end

@@ -42,8 +42,6 @@ class Item
   def self.json_create(object)
     arguments, associations = *object['arguments']
     item = new(*arguments)
-    puts associations
-    gets.chomp
     item.genre = associations[0]
     item.label = associations[1]
     item.author = associations[2]
