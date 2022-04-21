@@ -47,22 +47,22 @@ $ ./main.rb
 
 ## Authors
 
-👤 **Andrés Felipe Arroyave Naranjo**
+👤 **Sahar Abdel Samad**
 
-- GitHub: [@JohnFTitor](https://github.com/JohnFTitor)
-- Twitter: [@johnftitor](https://twitter.com/johnftitor)
-- LinkedIn: [Andres](https://www.linkedin.com/in/andresarroyavenaranjo/)
+- GitHub: [@sahar-abdelsamad](https://github.com/Sahar-AbdelSamad)
+- Twitter: [@abdelsamadsahar](https://twitter.com/AbdelSamadSahar)
+- LinkedIn: [sahar-abdel-samad](https://www.linkedin.com/in/sahar-abdel-samad/)
 
 👤 **Zeeshan Haider**
 
 - GitHub: [@zhadier](https://github.com/zhadier)
 - LinkedIn: [Zeeshan Haider](https://www.linkedin.com/in/zhadier39/)
 
-👤 **Sahar Abdel Samad**
+👤 **Andrés Felipe Arroyave Naranjo**
 
-- GitHub: [@sahar-abdelsamad](https://github.com/Sahar-AbdelSamad)
-- Twitter: [@abdelsamadsahar](https://twitter.com/AbdelSamadSahar)
-- LinkedIn: [sahar-abdel-samad](https://www.linkedin.com/in/sahar-abdel-samad/)
+- GitHub: [@JohnFTitor](https://github.com/JohnFTitor)
+- Twitter: [@johnftitor](https://twitter.com/johnftitor)
+- LinkedIn: [Andres](https://www.linkedin.com/in/andresarroyavenaranjo/)
 
 ## 🤝 Contributing
 
