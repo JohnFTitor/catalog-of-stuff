@@ -49,6 +49,12 @@ And run it like this
 $ ./main.rb
 ```
 
+### How to run tests (On root directory) 
+
+```bash
+$ rspec src/spec
+```
+
 ## Authors
 
 👤 **Sahar Abdel Samad**
