@@ -1,16 +1,19 @@
 require_relative './label'
 require_relative './type_collection'
-
+require_relative '../modules/json_handler'
 class LabelCollection < TypeCollection
+  include JsonHandler
+  attr_reader :list
+
   def initialize
     super
-    create_defaults if @list.length.zero?
+    @list = create_defaults
   end
 
   def get
     choice = super
     if choice == 1
-      list
+      display
       index = verify_index(@list)
       @list[index]
     else
@@ -18,7 +21,7 @@ class LabelCollection < TypeCollection
     end
   end
 
-  def list
+  def display
     @list.each_with_index { |label, index| puts "#{index}) Title: #{label.title},  Color: #{label.color}" }
   end
 
@@ -35,7 +38,12 @@ class LabelCollection < TypeCollection
 
   def create_defaults
     gift = Label.new(1, 'Gift', 'Yellow')
-    new = Label.new(2, 'New', 'Blue')
-    @list.push(gift, new)
+    new_label = Label.new(2, 'New', 'Blue')
+    labels = load_json(File.join(File.dirname(__FILE__), '../json/labels.json'))
+    if labels.empty?
+      @list.push(gift, new_label)
+    else
+      @list = labels
+    end
   end
 end

@@ -15,4 +15,10 @@ class Game < Item
     duration = Date.today.year - @last_played_at.year
     super && duration > 2
   end
+
+  def set_arguments
+    associations = super[1]
+    arguments = [@multiplayer, @last_played_at, @id, @published_date]
+    [arguments, associations]
+  end
 end

@@ -1,5 +1,5 @@
 module JsonMethods
-  def json_create(object)
+  def self.json_create(object)
     new(*object['arguments'])
   end
 

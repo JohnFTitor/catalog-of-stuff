@@ -1,5 +1,7 @@
 require_relative '../modules/common_checks'
 class TypeCollection
+  attr_reader :list
+
   include CommonChecks
 
   def initialize
@@ -12,7 +14,7 @@ class TypeCollection
     verify_range(1, 2, message: message, error: 'Please enter valid choice: ')
   end
 
-  def list
+  def display
     puts @list
   end
 end

@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require_relative './classes/app'
+require 'fileutils'
 
 def main
   app = App.new

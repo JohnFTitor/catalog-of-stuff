@@ -14,4 +14,10 @@ class Book < Item
   def can_be_archived?
     (@cover_state == 'bad' || super)
   end
+
+  def set_arguments
+    associations = super[1]
+    arguments = [@publisher, @cover_state, @id, @published_date]
+    [arguments, associations]
+  end
 end

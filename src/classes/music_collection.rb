@@ -1,11 +1,15 @@
 require_relative './music'
 require_relative '../modules/common_checks'
+require_relative '../modules/json_handler'
 
 class MusicCollection
+  attr_reader :album
+
   include CommonChecks
+  include JsonHandler
 
   def initialize
-    @album = []
+    @album = load_json(File.join(File.dirname(__FILE__), '../json/music.json'))
   end
 
   def add(genre_collection, label_collection, author_collection)
@@ -25,11 +29,10 @@ class MusicCollection
 
   def list
     @album.each_with_index do |music, index|
-      puts
-      print "[#{index}] => Label: #{music.label.title.capitalize}, "
+      print "#{index}) Label: #{music.label.title.capitalize}, "
       print "Author: #{music.author.first_name} #{music.author.last_name} "
-      print "Color: #{music.label.color.capitalize}, Genre: #{music.genre.name.capitalize} "
-      spotify = music.on_spotify ? ', Track is on Spotify ' : ", Track isn't on Spotify "
+      puts "Color: #{music.label.color.capitalize}, Genre: #{music.genre.name.capitalize} "
+      spotify = music.on_spotify ? 'Track is on Spotify ' : "Track isn't on Spotify "
       print spotify
       print ", Published on #{music.published_date.strftime('%a %d %b %Y')}"
     end

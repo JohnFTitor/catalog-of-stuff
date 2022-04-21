@@ -1,11 +1,15 @@
 require_relative './game'
 require_relative '../modules/common_checks'
+require_relative '../modules/json_handler'
 
 class GameCollection
+  attr_reader :games
+
   include CommonChecks
+  include JsonHandler
 
   def initialize
-    @games = []
+    @games = load_json(File.join(File.dirname(__FILE__), '../json/games.json'))
   end
 
   def add(genre_coll, label_coll, author_coll)

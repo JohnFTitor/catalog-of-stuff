@@ -4,8 +4,11 @@ require_relative './genre_collection'
 require_relative './music_collection'
 require_relative './game_collection'
 require_relative './author_collection'
+require_relative '../modules/json_handler'
 
 class App
+  include JsonHandler
+
   def initialize
     @book_collection = BookCollection.new
     @game_collection = GameCollection.new
@@ -34,9 +37,9 @@ class App
     when 1 then @book_collection.list
     when 2 then @music_collection.list
     when 3 then @game_collection.list
-    when 4 then @genre_collection.list
-    when 5 then @label_collection.list
-    when 6 then @author_collection.list
+    when 4 then @genre_collection.display
+    when 5 then @label_collection.display
+    when 6 then @author_collection.display
     end
     print "\nPress Enter to return"
     gets.chomp
@@ -49,5 +52,18 @@ class App
     when 8 then @music_collection.add(@genre_collection, @label_collection, @author_collection)
     when 9 then @game_collection.add(@genre_collection, @label_collection, @author_collection)
     end
+  end
+
+  def handle_exit
+    unless Dir.exist?(File.join(File.dirname(__FILE__), '../json'))
+      FileUtils.mkdir_p(File.join(File.dirname(__FILE__), '../json'))
+    end
+    write_json(File.join(File.dirname(__FILE__), '../json/music.json'), @music_collection.album)
+    write_json(File.join(File.dirname(__FILE__), '../json/books.json'), @book_collection.books)
+    write_json(File.join(File.dirname(__FILE__), '../json/games.json'), @game_collection.games)
+    write_json(File.join(File.dirname(__FILE__), '../json/labels.json'), @label_collection.list)
+    write_json(File.join(File.dirname(__FILE__), '../json/author.json'), @author_collection.list)
+    write_json(File.join(File.dirname(__FILE__), '../json/genres.json'), @genre_collection.list)
+    'exit'
   end
 end

@@ -1,16 +1,20 @@
 require_relative './author'
 require_relative './type_collection'
+require_relative '../modules/json_handler'
 
 class AuthorCollection < TypeCollection
+  include JsonHandler
+  attr_reader :list
+
   def initialize
     super
-    create_defaults if @list.length.zero?
+    @list = create_defaults
   end
 
   def get
     choice = super
     if choice == 1
-      list
+      display
       index = verify_index(@list)
       @list[index]
     else
@@ -18,8 +22,7 @@ class AuthorCollection < TypeCollection
     end
   end
 
-  def list
-    puts
+  def display
     @list.each_with_index do |author, index|
       puts "#{index}) First Name: #{author.first_name},  Last Name: #{author.last_name}"
     end
@@ -39,6 +42,11 @@ class AuthorCollection < TypeCollection
   def create_defaults
     author1 = Author.new(1, 'Stephen', 'King')
     author2 = Author.new(2, 'John', 'Smith')
-    @list.push(author1, author2)
+    authors = load_json(File.join(File.dirname(__FILE__), '../json/author.json'))
+    if authors.empty?
+      @list.push(author1, author2)
+    else
+      @list = authors
+    end
   end
 end
